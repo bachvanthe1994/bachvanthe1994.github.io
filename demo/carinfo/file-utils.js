@@ -65,7 +65,7 @@ $(document).ready(function() {
                 //ios
                 var array = href.split("url=");
                 var file = array[1];
-                file = file.replace("https://demo.vnpayment.vn", "..") + "?i=" + i;
+                file = file.replace("https://bachvanthe1994.github.io", "..") + "?i=" + i;
                 $.ajax({
                     type: "GET",
                     url: file,
@@ -76,7 +76,7 @@ $(document).ready(function() {
                         $(xml).find("string").each(function() {
                             var iosFile = $(this).text();
                             if (iosFile.endsWith(".ipa")) {
-                                iosFile = iosFile.replace("https://demo.vnpayment.vn", "..");
+                                iosFile = iosFile.replace("https://bachvanthe1994.github.io", "..");
 
                                 var position = parseInt(getParameterByName("i", url));
 
