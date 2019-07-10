@@ -1,0 +1,154 @@
+html, body, form {
+    height: 100%;
+}
+    /*Opera Fix*/
+    body:before {
+        content: "";
+        height: 100%;
+        float: left;
+        width: 0;
+        margin-top: -32767px;
+    }
+
+body {
+    margin: 0;
+	padding:0;
+    font-family: arial;
+    font-size: 13px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#wrapper {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+#header {
+    height: 40px;
+    padding: 5px 0 5px 5px;
+    background-repeat: repeat;
+}
+
+    #header .logo {
+        height: 100%;
+        width: 170px;
+        background-color: Transparent;
+        background-repeat: no-repeat;
+    }
+
+#nav-top {
+    height: 20px;
+    padding: 7px 0 5px 5px;
+}
+
+    #nav-top a, #nav-top span {
+        font-weight: bold;
+    }
+
+#content {
+    padding: 15px 10px 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+    #content div {
+        width: 100%;
+        margin-bottom: 7px;
+    }
+
+    #content .text-item {
+        text-align: justify;
+        width: 100%;
+    }
+
+    #content .title {
+    }
+
+    #content .text-box {
+        min-width: 30%;
+        height: 22px;
+        font-size: 15px;
+    }
+
+    #content .select-box {
+        min-width: 50%;
+        height: 25px;
+        font-size: 15px;
+    }
+
+    #content .button {
+        min-width: 80px;
+        min-height: 25px;
+        border: 0;
+        padding: 0;
+    }
+
+        #content .button:hover {
+        }
+
+    #content a,
+    #content a:visited {
+        display: inline-block;
+        padding: 5px;
+        font-size: 11px;
+    }
+
+        #content a:hover {
+            cursor: pointer;
+        }
+
+#footer {
+    min-height: 16px;
+    padding: 7px 0px;
+    margin-top: -30px;
+	margin-bottom:0;
+    position: relative;
+    clear: both;
+    font-size: 10px;
+    text-align: center;
+}
+
+ul.appList.half {
+    width: 70%;
+}
+
+#innerdiv {
+    display: table;
+    margin: auto;
+    padding: 20px 0;
+    position: relative;
+    z-index: 4;
+}
+
+img {	
+	border:none;
+}
+
+.navcontainer ul {
+	padding:0;
+    margin: auto;
+    list-style-type: disc;
+    text-align: center;
+}
+
+    .navcontainer ul li {
+        float: left;
+		margin:5px;
+        width: 95px;
+        display: inline;
+    }
+
+        .navcontainer ul li a {
+            font-weight: bold;
+            text-decoration: none;
+            color: #166b43;
+        }
+
+            .navcontainer ul li a:hover {
+                font-weight: bold;
+                color: #0d4329;
+            }
