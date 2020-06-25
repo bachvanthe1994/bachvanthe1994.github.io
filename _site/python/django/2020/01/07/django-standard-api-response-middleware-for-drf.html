@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/img/favicon.ico" />
+    <title>Django Standard API Response Middleware for DRF - Learn and share</title>
+    <meta name="author" content="Bạch Văn Thế" />
+    <meta name="description" content="Django Standard API Response Middleware for DRF" />
+    <meta name="keywords" content="Django Standard API Response Middleware for DRF, Learn and share, python, django" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <meta content="1749788565247320" property="fb:app_id">
+    <meta content="Learn and share" property="og:site_name">
+
+    
+
+    
+      <meta content="Django Standard API Response Middleware for DRF" property="og:title">
+      <meta content="article" property="og:type">
+    
+
+    
+      <meta content="I write about all problems or experiences that I have." property="og:description">
+    
+
+    
+      <meta content="http://localhost:4000/python/django/2020/01/07/django-standard-api-response-middleware-for-drf.html" property="og:url">
+    
+
+    
+      <meta content="2020-01-07T10:17:00+07:00" property="article:published_time">
+      <meta content="http://localhost:4000/about/" property="article:author">
+    
+
+    
+
+    
+      
+        <meta content="python" property="article:section">
+      
+    
+
+    
+      
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@github.io">
+    <meta name="twitter:creator" content="@github.io">
+
+    
+      <meta name="twitter:title" content="Django Standard API Response Middleware for DRF">
+    
+
+    
+      <meta name="twitter:url" content="http://localhost:4000/python/django/2020/01/07/django-standard-api-response-middleware-for-drf.html">
+    
+
+    
+      <meta name="twitter:description" content="I write about all problems or experiences that I have.">
+    
+
+    
+
+    <!-- Font awesome icons -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/static/css/syntax.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/super-search.css">
+    <link rel="stylesheet" href="/static/css/thickbox.css">
+    <link rel="stylesheet" href="/static/css/projects.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-3">
+        <div class="fixed-condition">
+          <h1 class="author-name"><a href="/">Bạch Văn Thế</a></h1>
+          
+            <div class="profile-about">
+              I'm a Programmer. I have experiences about Mobile application development iOS, React-native, Android. At the moment, I working for VNPay company. On this website, I write about all problems or experiences that I have.
+            </div>
+          
+          <div class="social">
+            <ul>
+              
+                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              
+                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              
+                <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+              
+                <li><a href="#" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+              
+                <li><a href="https://github.com/bachvanthe1994" target="_blank"><i class="fa fa-github"></i></a></li>
+              
+            </ul>
+          </div>
+          <div class="search" id="js-search">
+            <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+            <ul class="search__results" id="js-search__results"></ul>
+          </div>
+          <hr />
+          <ul class="sidebar-nav">
+            <strong>Navigation</strong>
+            <li><a href="/">Home</a></li>
+            
+              <li><a class="about" href="/about/">About Me</a></li>
+            
+              <li><a class="about" href="/projects/">My Projects</a></li>
+            
+              <li><a class="about" href="/feed.xml">XML Feed</a></li>
+            
+          </ul>
+        </div>
+        <!-- end /.fixed-condition -->
+      </div>
+      <div class="col-sm-8 col-offset-1 main-layout">
+        <header class="post-header">
+  <h1 class="post-title">Django Standard API Response Middleware for DRF</h1>
+</header>
+
+<span class="time">07 Jan 2020</span>
+
+  <span class="categories">
+    &raquo; <a href="/category/python">python</a>, <a href="/category/django">django</a>
+  </span>
+
+
+<div class="content">
+  <div class="post"><p>As you can see, if you using django-rest-framework, you will found many different response format.
+This middleware to solve all of these problems with Standard API Response.</p>
+
+<p>All HTTP Response status stored into json response, not in HTTP Status (because mobile application,
+like android can’t fetch the response body when HTTP Status &gt;= 400).</p>
+
+<h3 id="middlewarepy"><code class="highlighter-rouge">middleware.py</code></h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="kn">from</span> <span class="nn">django.utils.deprecation</span> <span class="kn">import</span> <span class="n">MiddlewareMixin</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+<span class="kn">from</span> <span class="nn">django.core.serializers.json</span> <span class="kn">import</span> <span class="n">DjangoJSONEncoder</span>
+
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
+
+
+<span class="k">class</span> <span class="nc">BaseAPIResponseMiddleware</span><span class="p">(</span><span class="n">MiddlewareMixin</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">render_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="s">"""
+        function to fixed the response API following with this format:
+
+        [1] success single
+            {
+             "status": 200,
+             "success": true,
+             "message": "The success message",
+             "result": {}
+            }
+
+        [2] success list
+            {
+               "status": 200,
+               "success": true,
+               "message": null,
+               "results": [],
+
+               "count": 2,
+               "page_size": 5,
+               "current_page": 1,
+               "next": "http://127.0.0.1:8000/api/page/?page=2&amp;search=a",
+               "previous": null
+            }
+
+        [3] failed
+            {
+               "status": 400,
+               "success": false,
+               "message": "The failed message",
+               "result": {}
+            }
+        """</span>
+        <span class="n">default_response_keys</span> <span class="o">=</span> <span class="p">(</span><span class="s">'status'</span><span class="p">,</span> <span class="s">'status_http'</span><span class="p">,</span> <span class="s">'detail'</span><span class="p">,</span> <span class="s">'message'</span><span class="p">,</span>
+                                 <span class="s">'success'</span><span class="p">,</span> <span class="s">'non_field_errors'</span><span class="p">,</span> <span class="s">'count'</span><span class="p">,</span>
+                                 <span class="s">'page_size'</span><span class="p">,</span> <span class="s">'current_page'</span><span class="p">,</span> <span class="s">'next'</span><span class="p">,</span>
+                                 <span class="s">'previous'</span><span class="p">,</span> <span class="s">'result'</span><span class="p">,</span> <span class="s">'results'</span><span class="p">)</span>
+        <span class="n">response_data</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># setup default result if doesn't exist
+</span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="s">'result'</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">,</span> <span class="s">'results'</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">]):</span>
+            <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'result'</span><span class="p">:</span> <span class="p">{}})</span>
+
+        <span class="c1"># setup default message into response data
+</span>        <span class="k">if</span> <span class="s">'message'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">:</span>
+            <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'message'</span><span class="p">:</span> <span class="bp">None</span><span class="p">})</span>
+
+        <span class="c1"># store the status_code into response data
+</span>        <span class="k">if</span> <span class="s">'status'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">:</span>
+            <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'status'</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">})</span>
+
+        <span class="c1"># store the status_http into response data
+</span>        <span class="k">if</span> <span class="s">'status_http'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">:</span>
+            <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'status_http'</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">})</span>
+
+        <span class="c1"># updating the response message
+</span>        <span class="k">if</span> <span class="s">'detail'</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">:</span>
+            <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'message'</span><span class="p">:</span> <span class="n">response_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'detail'</span><span class="p">)})</span>
+            <span class="k">del</span> <span class="n">response_data</span><span class="p">[</span><span class="s">'detail'</span><span class="p">]</span>
+
+        <span class="k">elif</span> <span class="s">'non_field_errors'</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">:</span>
+            <span class="n">response_errors</span> <span class="o">=</span> <span class="s">'&lt;br /&gt;'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'non_field_errors'</span><span class="p">))</span>
+            <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'message'</span><span class="p">:</span> <span class="n">response_errors</span><span class="p">})</span>
+            <span class="k">del</span> <span class="n">response_data</span><span class="p">[</span><span class="s">'non_field_errors'</span><span class="p">]</span>
+
+        <span class="c1"># store the success boolean into response data
+</span>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">400</span><span class="p">:</span>
+            <span class="n">response_errors</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">response_errors_keys</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">response_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">default_response_keys</span><span class="p">:</span>
+                    <span class="n">errors</span> <span class="o">=</span> <span class="s">' '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">])</span>
+                    <span class="n">errors</span> <span class="o">=</span> <span class="s">'</span><span class="si">%</span><span class="s">s: </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
+                    <span class="n">response_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
+                    <span class="n">response_errors_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">response_errors</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">response_errors</span> <span class="o">=</span> <span class="s">'&lt;br /&gt;'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response_errors</span><span class="p">)</span>
+                <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'message'</span><span class="p">:</span> <span class="n">response_errors</span><span class="p">})</span>
+
+            <span class="c1"># deleting the errors in the field keys.
+</span>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">response_errors_keys</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">response_data</span><span class="o">.</span><span class="n">pop</span><span class="p">,</span> <span class="n">response_errors_keys</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">response_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'message'</span><span class="p">):</span>
+                <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'message'</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s">'Failed'</span><span class="p">)})</span>
+
+            <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'success'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+                                  <span class="s">'status_http'</span><span class="p">:</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">})</span>
+
+        <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">response_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'message'</span><span class="p">):</span>
+                <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'message'</span><span class="p">:</span> <span class="n">_</span><span class="p">(</span><span class="s">'Success'</span><span class="p">)})</span>
+
+            <span class="k">if</span> <span class="s">'success'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">:</span>
+                <span class="n">response_data</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">'success'</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">response_data</span>
+
+    <span class="k">def</span> <span class="nf">process_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="s">'data'</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">render_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+                <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">response_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'status_http'</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="s">'status_http'</span> <span class="ow">in</span> <span class="n">response_data</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="n">response_data</span><span class="p">[</span><span class="s">'status_http'</span><span class="p">]</span>
+
+                <span class="n">response</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">response_data</span>
+                <span class="n">response</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response_data</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">DjangoJSONEncoder</span><span class="p">)</span>
+            <span class="k">except</span> <span class="nb">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">response</span>
+</code></pre></div></div>
+
+<h3 id="paginatorpy"><code class="highlighter-rouge">paginator.py</code></h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">django.core.paginator</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Paginator</span><span class="p">,</span> <span class="n">EmptyPage</span><span class="p">,</span> <span class="n">PageNotAnInteger</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">rest_framework.pagination</span> <span class="kn">import</span> <span class="p">(</span><span class="n">PageNumberPagination</span><span class="p">,</span> <span class="n">LimitOffsetPagination</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">RestPagination</span><span class="p">(</span><span class="n">PageNumberPagination</span><span class="p">,</span> <span class="n">LimitOffsetPagination</span><span class="p">):</span>
+    <span class="s">"""
+    class FoobarPagiantion(RestPagination):
+        page_size = 10
+
+
+    class FoobarView(ListAPIView):
+        pagination_class = FoobarPagiantion
+    """</span>
+
+    <span class="k">def</span> <span class="nf">paginate_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queryset</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">paginate_queryset</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="n">view</span><span class="p">)</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">query_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'limit'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">queryset</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">limit</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">queryset</span>
+
+    <span class="k">def</span> <span class="nf">get_paginated_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+        <span class="n">next_link</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_next_link</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_next_link</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="s">''</span>
+        <span class="n">prev_link</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_previous_link</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_previous_link</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="s">''</span>
+
+        <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">USE_SSL</span><span class="p">:</span>
+            <span class="n">next_link</span> <span class="o">=</span> <span class="n">next_link</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'http:'</span><span class="p">,</span> <span class="s">'https:'</span><span class="p">)</span>
+            <span class="n">prev_link</span> <span class="o">=</span> <span class="n">prev_link</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'http:'</span><span class="p">,</span> <span class="s">'https:'</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([</span>
+            <span class="p">(</span><span class="s">'count'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">count</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">'page_size'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_size</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">'current_page'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="o">.</span><span class="n">number</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">'next'</span><span class="p">,</span> <span class="n">next_link</span> <span class="k">if</span> <span class="n">next_link</span> <span class="o">!=</span> <span class="s">''</span> <span class="k">else</span> <span class="bp">None</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">'previous'</span><span class="p">,</span> <span class="n">prev_link</span> <span class="k">if</span> <span class="n">prev_link</span> <span class="o">!=</span> <span class="s">''</span> <span class="k">else</span> <span class="bp">None</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">'status'</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">'message'</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">'Success'</span><span class="p">)),</span>
+            <span class="p">(</span><span class="s">'success'</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+            <span class="p">(</span><span class="s">'results'</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+        <span class="p">]))</span>
+</code></pre></div></div>
+</div>
+  <div class="share-page">
+  <span style="float: left;">Share this on &rarr;&nbsp;&nbsp;</span>
+
+  <!-- Twitter -->
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  <!-- Facebook -->
+  <div class="fb-share-button" data-href="http://localhost:4000/python/django/2020/01/07/django-standard-api-response-middleware-for-drf.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1749788565247320";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</div>
+
+
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+            
+            <div class="panel-body">
+              <h4>Related Posts</h4>
+              <ul>
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/python/django/2020/05/12/how-setup-all-raw-id-fields-and-search-fields-for-django.html">How to setup all raw_id_fields and search_fields for django</a>
+                  
+                    (Categories: <a href="/category/python">python</a>, <a href="/category/django">django</a>)
+                  
+                </li>
+          
+          
+        
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/python/2020/05/02/python-numberize-until-undefined-or-infinity-numbers.html">Python numberize until undefined or infinity numbers</a>
+                  
+                    (Categories: <a href="/category/python">python</a>)
+                  
+                </li>
+          
+          
+        
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/python/django/2020/04/07/how-to-create-django-language-middleware.html">How to create Django Language Middleware</a>
+                  
+                    (Categories: <a href="/category/python">python</a>, <a href="/category/django">django</a>)
+                  
+                </li>
+          
+          
+        
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/python/django/2016/12/29/top-10-python-libraries-of-2016.html">Top 10 Python libraries of 2016</a>
+                  
+                    (Categories: <a href="/category/python">python</a>, <a href="/category/django">django</a>)
+                  
+                </li>
+          
+          
+        
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/python/codefights/2016/06/11/get-month-name-cf.html">get Month Name [CF]</a>
+                  
+                    (Categories: <a href="/category/python">python</a>, <a href="/category/codefights">codefights</a>)
+                  
+                </li>
+          
+          
+        
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/python/codefights/2016/06/11/find-the-number-of-even-digits-in-the-given-integer-cf.html">Find the number of even digits in the given integer [CF]</a>
+                  
+                    (Categories: <a href="/category/python">python</a>, <a href="/category/codefights">codefights</a>)
+                  
+                </li>
+          
+          
+        
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+  
+    
+      
+        
+          
+      
+          
+      
+    
+  
+  
+  </ul>
+</div>
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/nginx/server/ssl/security/2019/07/20/how-to-install-ssl-certificate-on-nginx.html">&laquo; How to Install SSL Certificate on NGINX</a>
+  
+  
+    <a class="next" href="/bash/linux/ubuntu/2020/04/07/how-to-automaticly-backup-your-projects-into-external-hardisk-in-ubuntu.html">How to automaticly backup your projects into external hardisk in ubuntu? &raquo;</a>
+  
+</div>
+
+<div class="disqus-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    var disqus_shortname = "thebv";
+    var disqus_identifier = "http://localhost:4000_Django Standard API Response Middleware for DRF";
+    var disqus_title = "Django Standard API Response Middleware for DRF";
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    /* ]]> */
+  </script>
+</div>
+
+        <footer>
+          &copy; Bạch Văn Thế
+          
+            - <a href="https://github.com/bachvanthe1994">https://github.com/bachvanthe1994</a> - Powered by Jekyll.
+          
+          <div class="btn-github" style="float:right;">
+            <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="100" height="20px"></iframe>
+          </div>
+        </footer>
+      </div>
+      <!-- end /.col-sm-8 -->
+    </div>
+    <!-- end /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/super-search.js"></script>
+    <script src="/static/js/thickbox-compressed.js"></script>
+    <script src="/static/js/projects.js"></script>
+  </body>
+</html>
+

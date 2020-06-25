@@ -1,0 +1,58 @@
+title: Learn and share
+description: I write about all problems or experiences that I have.
+author: Bạch Văn Thế
+github: https://github.com/bachvanthe1994
+about: "I'm a Programmer. I have experiences about Mobile application development iOS, React-native, Android. At the moment, I working for VNPay company. On this website, I write about all problems or experiences that I have."
+disqus_shortname: thebv
+google_analytics: UA-XXXXXXXX-Y
+
+enableTags: true
+tagarray: [android, ios, react-native, translate, objtive-c, swift, other]
+
+collections:
+  project:
+    output: true
+    permalink: /project/:path/
+
+social:
+    - icon: fa-facebook
+      link: "#"
+    - icon: fa-twitter
+      link: "#"
+    - icon: fa-linkedin
+      link: "#"
+    - icon: fa-stack-exchange
+      link: "#"
+    - icon: fa-github
+      link: "https://github.com/bachvanthe1994"
+
+share:
+  twitter_username: github.io
+  fb_appid: 1749788565247320
+
+urls:
+    - text: About Me
+      url: /about/
+    - text: My Projects
+      url: /projects/
+    - text: XML Feed
+      url: /feed.xml
+
+url: "https://bachvanthe1994.github.io/blog/"
+baseurl: ""
+paginate: 20
+per_page: 20
+paginate_path: "/page/:num/"
+markdown: kramdown
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: ['development']
+
+theme: jekyll-theme-cayman
