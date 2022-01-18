@@ -1,0 +1,29 @@
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  width: "100%";
+  height: "100%";
+}
+.done {
+  background-color: rgb(9, 238, 9);
+  color: rgb(0, 0, 0);
+  display: inline-block;
+}
+.research {
+  background-color: rgb(238, 165, 9);
+  color: rgb(0, 0, 0);
+  display: inline-block;
+}
+.wrapper {
+  border: 1px #000000 solid;
+  padding: 10px;
+}
