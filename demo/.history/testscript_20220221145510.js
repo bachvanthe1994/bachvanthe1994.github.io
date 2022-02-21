@@ -43,12 +43,6 @@ function shareText() {
   }
 }
 
-function doPickContact() {
-  window.alert(
-    '{"action":"pick_contact"}'
-  );
-}
-
-function pickContactCallback(sdt) {
-  $("#sdtpicked").text(params.tenmb);
+function doPickContact(params) {
+  
 }

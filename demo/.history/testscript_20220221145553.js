@@ -50,5 +50,5 @@ function doPickContact() {
 }
 
 function pickContactCallback(sdt) {
-  $("#sdtpicked").text(params.tenmb);
+  share
 }

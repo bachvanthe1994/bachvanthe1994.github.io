@@ -48,7 +48,3 @@ function doPickContact() {
     '{"action":"pick_contact"}'
   );
 }
-
-function pickContactCallback(sdt) {
-  $("#sdtpicked").text(params.tenmb);
-}

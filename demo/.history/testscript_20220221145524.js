@@ -45,10 +45,6 @@ function shareText() {
 
 function doPickContact() {
   window.alert(
-    '{"action":"pick_contact"}'
+    '{"action":"pick_contact","data":{"message":"Chia sẻ Ví nội bộ iOS từ Webview"}}'
   );
-}
-
-function pickContactCallback(sdt) {
-  $("#sdtpicked").text(params.tenmb);
 }
