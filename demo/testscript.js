@@ -52,3 +52,15 @@ function doPickContact() {
 function pickContactCallback(sdt) {
   $("#sdtpicked").text(sdt);
 }
+
+function getDeviceLocation() {
+  window.alert('{"action":"get_device_location", "function":"locationCallback"}')
+}
+
+function locationCallback(jsonString) {
+  let json = JSON.parse(jsonString)
+  console.log("locationCallback: ", json)
+  $("#lat").text(json["lat"]);
+  $("#lng").text(json["lng"]);
+  $("#locationstatus").text(json["status"]);
+}
