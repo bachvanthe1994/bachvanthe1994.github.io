@@ -60,7 +60,12 @@ function getDeviceLocation() {
 function locationCallback(jsonString) {
   let json = JSON.parse(jsonString)
   console.log("locationCallback: ", json)
-  $("#lat").text(json["lat"]);
-  $("#lng").text(json["lng"]);
+  if (json["status"] == "SUCCESS") {
+    $("#lat").text(json["location"]["lat"]);
+    $("#lng").text(json["location"]["lng"]);
+  } else {
+    $("#lat").text("");
+    $("#lng").text("");
+  }
   $("#locationstatus").text(json["status"]);
 }
