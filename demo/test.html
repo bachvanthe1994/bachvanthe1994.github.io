@@ -51,14 +51,21 @@
     <div class="wrapper">
       <div class="done">DONE</div>
       <br />
-      <b>4. Tải ảnh về máy</b><br />Đã có trên SDK Sự kiện thể thao: tải vé
+      <b>4. Download Images</b>
+      <br />
+      <img width="100" src="images/image.png" />
+      <button onclick="saveImageToDevice(window.location.href + '/images/image.png')">download</button>
+      <br />
+      <img width="100" src="images/aerial_view_of_heart_shaped_tropical_island-wallpaper-2560x1600.jpg" />
+      <button onclick="saveImageToDevice(window.location.href + '/images/aerial_view_of_heart_shaped_tropical_island-wallpaper-2560x1600.jpg')">download</button>
+      <br />
     </div>
     <div class="wrapper">
       <div class="done">DONE</div>
       <br />
-      <b>5. Tải ảnh lên</b>
+      <b>5. Upload image</b>
       <br />
-      <b>6. Chụp ảnh</b>
+      <b>6. Capture</b>
       <br />
       <input type="file" onchange="previewFile()" /><br />
       <img src="" height="200" alt="Image preview..." />
