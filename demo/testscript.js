@@ -45,12 +45,15 @@ function shareText() {
 
 function doPickContact() {
   window.alert(
-    '{"action":"pick_contact"}'
+    '{"action":"pick_contact","function":"pickContactCallback"}'
   );
 }
 
-function pickContactCallback(sdt) {
-  $("#sdtpicked").text(sdt);
+function pickContactCallback(jsonString) {
+  let json = JSON.parse(jsonString)
+  console.log("pickContactCallback: ", json)
+  $("#contact_sdtpicked").text(json["phone"]);
+  $("#contact_namepicked").text(json["name"]);
 }
 
 function getDeviceLocation() {
