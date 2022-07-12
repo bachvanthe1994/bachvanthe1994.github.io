@@ -32,7 +32,7 @@ function previewFile() {
 function shareText() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
-  let message = $("#share_message").text()
+  let message = $("#share_message").val()
   console.log("message", message)
   if (params.os == "ios") {
     window.alert(
@@ -109,9 +109,9 @@ function openDeviceSetting() {
 
 
 function saveData() {
-  let save_data = $("#save_data").text()
+  let save_data = $("#save_data").val()
   console.log("save_data", save_data)
-  window.alert('{"action":"storage_save","field":"user_history_key","value":"" + save_data + ""}')
+  window.alert('{"action":"storage_save","field":"user_history_key","value":"' + save_data +'"}')
 }
 
 function getData() {
