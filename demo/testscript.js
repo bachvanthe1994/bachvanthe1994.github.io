@@ -36,11 +36,11 @@ function shareText() {
   console.log("message", message)
   if (params.os == "ios") {
     window.alert(
-      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ iOS từ Webview\n' + message + '"}}'
+      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ iOS từ Webview\\n' + message + '"}}'
     );
   } else if (params.os == "android") {
     window.alert(
-      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ Android từ Webview\n' + message + '"}}'
+      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ Android từ Webview\\n' + message + '"}}'
     );
   }
 }
@@ -121,5 +121,5 @@ function getData() {
 function setUserHistoryData(jsonString) {
   let json = JSON.parse(jsonString);
   console.log("locationCallback: ", json);
-  $("#get_data").text(json)
+  $("#get_data").text(jsonString)
 }
