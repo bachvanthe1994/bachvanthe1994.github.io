@@ -118,8 +118,7 @@ function getData() {
   window.alert('{"action":"storage_get","field":"user_history_key","function":"setUserHistoryData"}')
 }
 
-function setUserHistoryData(jsonString) {
-  let json = JSON.parse(jsonString);
-  console.log("locationCallback: ", json);
-  $("#get_data").text(jsonString)
+function setUserHistoryData(value) {
+  console.log("setUserHistoryData: ", value);
+  $("#get_data").text(value)
 }
