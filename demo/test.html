@@ -79,9 +79,31 @@
     <div class="wrapper">
       <div class="done">DONE</div>
       <br />
-      <b>8. Chia sẻ (Zalo, Skype...)</b>
+      <b>8. Share (Zalo, Skype...)</b>
       <br />
-      <button onclick="shareText()">Chia sẻ</button>
+      <textarea id="share_message">Message</textarea>
+      <button onclick="shareText()">Share</button>
+    </div>
+    <div class="wrapper">
+      <div class="done">DONE</div>
+      <br />
+      <b>9. Open device setting</b>
+      <br />
+      <button onclick="openDeviceSetting()">Open device setting</button>
+    </div>
+    <div class="wrapper">
+      <div class="done">DONE</div>
+      <br />
+      <b>10. Save/get data</b>
+      <br />
+      <textarea id="save_data">Save data</textarea>
+      <br />
+      <button onclick="saveData()">Save</button>
+      <br />
+      <br />
+      <button onclick="getData()">Get</button>
+      <br />
+      <span id="get_data"></span>
     </div>
   </body>
 </html>

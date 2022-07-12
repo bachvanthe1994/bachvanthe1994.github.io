@@ -32,13 +32,15 @@ function previewFile() {
 function shareText() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
+  let message = $("#share_message").text()
+  console.log("message", message)
   if (params.os == "ios") {
     window.alert(
-      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ iOS từ Webview"}}'
+      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ iOS từ Webview\n' + message + '"}}'
     );
   } else if (params.os == "android") {
     window.alert(
-      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ Android từ Webview"}}'
+      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ Android từ Webview\n' + message + '"}}'
     );
   }
 }
@@ -95,7 +97,29 @@ function saveImageToDevice(imageUrl) {
   console.log("imageUrl", imageUrl);
   genImageBase64(imageUrl, function (dataUrl) {
     console.log("RESULT:", dataUrl);
-    window.alert("{\"action\":\"save_image\",\"data\":\"" + dataUrl + "\",\"name\":\"ve1.png\"}");
-    window.alert("{\"action\":\"save_image\",\"data\":\"DONE\"}")
+    window.alert('{"action":"save_image","data":"" + dataUrl + "","name":"ve1.png"}');
+    window.alert('{"action":"save_image","data":"DONE"}')
   });
+}
+
+
+function openDeviceSetting() {
+  window.alert('{"action":"open_device_setting"}')
+}
+
+
+function saveData() {
+  let save_data = $("#save_data").text()
+  console.log("save_data", save_data)
+  window.alert('{"action":"storage_save","field":"user_history_key","value":"" + save_data + ""}')
+}
+
+function getData() {
+  window.alert('{"action":"storage_get","field":"user_history_key","function":"setUserHistoryData"}')
+}
+
+function setUserHistoryData(jsonString) {
+  let json = JSON.parse(jsonString);
+  console.log("locationCallback: ", json);
+  $("#get_data").text(json)
 }
