@@ -29,39 +29,29 @@ function previewFile() {
     preview.src = "";
   }
 }
-function shareText() {
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = Object.fromEntries(urlSearchParams.entries());
-  let message = $("#share_message").val()
-  console.log("message", message)
-  if (params.os == "ios") {
-    window.alert(
-      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ iOS từ Webview\\n' + message + '"}}'
-    );
-  } else if (params.os == "android") {
-    window.alert(
-      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ Android từ Webview\\n' + message + '"}}'
-    );
+
+//------- PICK/TAKE A PHOTO ------
+function pickPhoto() {
+  window.alert('{"action":"pick_a_photo","function":"setPhotoCallback"}');
+}
+function takeAPhoto() {
+  window.alert('{"action":"capture_a_photo","function":"setPhotoCallback"}');
+}
+function setPhotoCallback(jsonString) {
+  let json = JSON.parse(jsonString);
+  console.log("setPhotoCallback: ", json);
+  if (json.status == "SUCCESS") {
+    $("#my_image").attr("src", json.data);
   }
 }
+//---------------
 
-function doPickContact() {
-  window.alert('{"action":"pick_contact","function":"pickContactCallback"}');
-}
-
-function pickContactCallback(jsonString) {
-  let json = JSON.parse(jsonString);
-  console.log("pickContactCallback: ", json);
-  $("#contact_sdtpicked").text(json["phone"]);
-  $("#contact_namepicked").text(json["name"]);
-}
-
+//------- GET DEVICE LOCATION -----------
 function getDeviceLocation() {
   window.alert(
     '{"action":"get_device_location", "function":"locationCallback"}'
   );
 }
-
 function locationCallback(jsonString) {
   let json = JSON.parse(jsonString);
   console.log("locationCallback: ", json);
@@ -74,7 +64,21 @@ function locationCallback(jsonString) {
   }
   $("#locationstatus").text(json["status"]);
 }
+//-------------------------------------
 
+//----------- PICK CONTACT ------------
+function doPickContact() {
+  window.alert('{"action":"pick_contact","function":"pickContactCallback"}');
+}
+function pickContactCallback(jsonString) {
+  let json = JSON.parse(jsonString);
+  console.log("pickContactCallback: ", json);
+  $("#contact_sdtpicked").text(json["phone"]);
+  $("#contact_namepicked").text(json["name"]);
+}
+//-------------------------------
+
+//------------ SAVE IMAGE ------------
 function genImageBase64(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.onload = function () {
@@ -88,37 +92,71 @@ function genImageBase64(url, callback) {
   xhr.responseType = "blob";
   xhr.send();
 }
-
-// toDataURL('https://cdn.discordapp.com/attachments/571092147801948204/784586541146177606/6f32c864-985a-481d-8d8e-bd1f14ab9951.png', function(dataUrl) {
-//   console.log('RESULT:', dataUrl)
-// })
-
 function saveImageToDevice(imageUrl) {
   console.log("imageUrl", imageUrl);
   genImageBase64(imageUrl, function (dataUrl) {
     console.log("RESULT:", dataUrl);
-    window.alert('{"action":"save_image","data":"" + dataUrl + "","name":"ve1.png"}');
-    window.alert('{"action":"save_image","data":"DONE"}')
+    window.alert(
+      '{"action":"save_image","data":"" + dataUrl + "","name":"ve1.png"}'
+    );
+    window.alert('{"action":"save_image","data":"DONE"}');
   });
 }
+//--------------------------------
 
-
+//--------- OPEN DEVICE SETTING ----------
 function openDeviceSetting() {
-  window.alert('{"action":"open_device_setting"}')
+  window.alert('{"action":"open_device_setting"}');
 }
+//-------------------------
 
-
+//---------- STORAGE -----------------
 function saveData() {
-  let save_data = $("#save_data").val()
-  console.log("save_data", save_data)
-  window.alert('{"action":"storage_save","field":"user_history_key","value":"' + save_data +'"}')
+  let save_data = $("#save_data").val();
+  console.log("save_data", save_data);
+  window.alert(
+    '{"action":"storage_save","field":"user_history_key","value":"' +
+      save_data +
+      '"}'
+  );
 }
 
 function getData() {
-  window.alert('{"action":"storage_get","field":"user_history_key","function":"setUserHistoryData"}')
+  window.alert(
+    '{"action":"storage_get","field":"user_history_key","function":"setUserHistoryData"}'
+  );
 }
 
 function setUserHistoryData(value) {
   console.log("setUserHistoryData: ", value);
-  $("#get_data").text(value)
+  $("#get_data").text(value);
+}
+//-----------------------------------
+
+//------- SHARE ------------
+function shareText() {
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+  let message = $("#share_message").val();
+  console.log("message", message);
+  if (params.os == "ios") {
+    window.alert(
+      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ iOS từ Webview\\n' +
+        message +
+        '"}}'
+    );
+  } else if (params.os == "android") {
+    window.alert(
+      '{"action":"share","data":{"message":"Chia sẻ Ví nội bộ Android từ Webview\\n' +
+        message +
+        '"}}'
+    );
+  }
+}
+//-------------------------
+
+class a {
+  static arrObserver = [];
+
+  getDeviceLocaiton(params) {}
 }
