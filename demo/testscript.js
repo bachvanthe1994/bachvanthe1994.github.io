@@ -97,7 +97,7 @@ function saveImageToDevice(imageUrl) {
   genImageBase64(imageUrl, function (dataUrl) {
     console.log("RESULT:", dataUrl);
     window.alert(
-      '{"action":"save_image","data":"" + dataUrl + "","name":"ve1.png"}'
+      '{"action":"save_image","data":"' + dataUrl + '","name":"ve1.png"}'
     );
     window.alert('{"action":"save_image","data":"DONE"}');
   });
