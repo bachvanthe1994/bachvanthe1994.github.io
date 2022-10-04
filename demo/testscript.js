@@ -12,6 +12,12 @@ window.onload = (event) => {
   } else {
     $("#tenmb").text(params.tenmb);
   }
+
+  try {
+    nativeFuncCall("ahihi"); 
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 function previewFile() {
