@@ -14,7 +14,7 @@ window.onload = (event) => {
   }
 
   try {
-    nativeFuncCall("ahihi"); 
+    window.webkit.messageHandlers.vnpsdkMiniAppMessage.postMessage("Hello, world!");
   } catch (error) {
     console.log(error)
   }
