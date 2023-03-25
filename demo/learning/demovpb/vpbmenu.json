@@ -1,0 +1,80 @@
+{
+  "code": "00",
+  "message": "",
+  "data": {
+    "list_menu": [
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Nạp tiền chứng khoán",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Điện",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Điện thoại di động",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Games",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Thấu chi tín chấp",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Giới thiệu bạn bè",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Tài khaonr số đẹp",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Trả góp tìn dụng",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Chứng khoán",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Chứng khoán",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Chứng khoán",
+        "code": "STOCK",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Chứng khoán",
+        "code": "STOCK",
+        "isNew": false
+      }
+    ]
+  }
+}
