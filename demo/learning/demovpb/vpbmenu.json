@@ -10,68 +10,68 @@
         "isNew": false
       },
       {
-        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_electric.png",
         "name": "Điện",
-        "code": "STOCK",
+        "code": "ELETRIC",
         "isNew": false
       },
       {
-        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_topup.png",
         "name": "Điện thoại di động",
-        "code": "STOCK",
+        "code": "TOPUP",
         "isNew": false
       },
       {
-        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_game.png",
         "name": "Games",
-        "code": "STOCK",
+        "code": "GAME",
         "isNew": false
       },
       {
-        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_overdraft.png",
         "name": "Thấu chi tín chấp",
-        "code": "STOCK",
+        "code": "OVERDRAFT",
         "isNew": false
       },
       {
-        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_invite_friend.png",
         "name": "Giới thiệu bạn bè",
-        "code": "STOCK",
+        "code": "INVITE_FRIEND",
         "isNew": false
       },
       {
-        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
-        "name": "Tài khaonr số đẹp",
-        "code": "STOCK",
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_sodep.png",
+        "name": "Tài khoản số đẹp",
+        "code": "SODEP",
         "isNew": false
       },
       {
-        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_credit_card_installment.png",
         "name": "Trả góp tìn dụng",
+        "code": "CREDIT_CARD_INSTALLMENT",
+        "isNew": false
+      },
+      {
+        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
+        "name": "Chứng khoán 1",
         "code": "STOCK",
         "isNew": false
       },
       {
         "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
-        "name": "Chứng khoán",
+        "name": "Chứng khoán 2",
         "code": "STOCK",
         "isNew": false
       },
       {
         "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
-        "name": "Chứng khoán",
+        "name": "Chứng khoán 3",
         "code": "STOCK",
         "isNew": false
       },
       {
         "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
-        "name": "Chứng khoán",
-        "code": "STOCK",
-        "isNew": false
-      },
-      {
-        "iconUrl": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_menu_stock.png",
-        "name": "Chứng khoán",
+        "name": "Chứng khoán 4",
         "code": "STOCK",
         "isNew": false
       }
