@@ -1,0 +1,30 @@
+{
+  "data": {
+    "promotion": [
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_promotion1.png",
+        "link": "https://google.com"
+      },
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_promotion2.png",
+        "link": "https://fb.com"
+      },
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_promotion3.png",
+        "link": "https://tinhte.vn"
+      },
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_promotion4.png",
+        "link": "https://24h.com.vn"
+      },
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_promotion5.png",
+        "link": "https://baomoi.com/"
+      },
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_promotion6.png",
+        "link": "https://dtruyen.com/"
+      }
+    ]
+  }
+}

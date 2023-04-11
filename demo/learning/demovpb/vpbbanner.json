@@ -1,0 +1,22 @@
+{
+  "list_banner": {
+    "arr": [
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_banner1.png",
+        "link": "https://google.com"
+      },
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_banner2.png",
+        "link": "https://fb.com"
+      },
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_banner3.png",
+        "link": "https://tinhte.vn"
+      },
+      {
+        "image": "https://bachvanthe1994.github.io/demo/learning/demovpb/icon/ic_home_banner4.png",
+        "link": "https://24h.com.vn"
+      }
+    ]
+  }
+}
