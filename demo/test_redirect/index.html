@@ -24,7 +24,50 @@
 	<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="./font/vietinfont.css">
 	<link rel="stylesheet" href="./font/ipay-palette.css">
-	<script src="./scripts-min.1.0.0.js?v=1.0.0"></script>
+
+<script>
+        // Function to detect if the device is mobile
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('Mobi') !== -1);
+        }
+
+        // Function to redirect based on device type
+        function redirectToAppropriateLink() {
+            var url = new URL(window.location.href);
+            var code = url.searchParams.get("code");
+            var refNo = url.searchParams.get("refNo");
+            let dataSwap = code;
+            let dataNoneSwapArray = Array(dataSwap.length).fill("");
+            let dataNoneSwap = "";
+            let dataClearText = "";
+            for (let i = 0; i < dataSwap.length; i++) {
+                const element = dataSwap[i];
+                if (i % 2 == 0) {
+                    dataNoneSwapArray[i + 1] = element;
+                } else {
+                    dataNoneSwapArray[i - 1] = element;
+                }
+            }
+            dataNoneSwapArray[62] = dataSwap[62];
+            dataNoneSwapArray[63] = dataSwap[63];
+            dataNoneSwapArray[0] = dataSwap[0];
+            dataNoneSwapArray[1] = dataSwap[1];
+            dataNoneSwap = dataNoneSwapArray.join("");
+            dataClearText = atob(dataNoneSwap);
+
+            if (isMobileDevice()) {
+                // Redirect to the mobile link
+                window.location.href = dataClearText;
+            } else {
+                // Redirect to the desktop link
+                window.location.href = "https://vietinbank.vn";
+            }
+        }
+        
+        // Call the function when the page loads
+        window.onload = redirectToAppropriateLink ;
+    </script>
+
     <style>
     html, body {height:100%;width:100%;margin:0;padding:0;font-family: 'SVN-Gilroy-Medium',sans-serif;font-weight:400;font-size:16px;color:#062A46;line-height:150%;background-color:#FFF;} 
     	body ul {padding:0;list-style: none;}
@@ -84,9 +127,6 @@ background: linear-gradient(34deg, rgba(60,147,210,1) 0%, rgba(100,126,215,1) 49
 
 
 </ul>
-
-
-
 
 <div style="clear:both;height:30px;"></div>
 
