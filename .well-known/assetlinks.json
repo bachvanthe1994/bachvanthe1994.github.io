@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "TestAlarm",
+      "package_name": "com.eslam.efficientalarm",
+      "sha256_cert_fingerprints": [
+        "CE:D2:5A:21:04:5B:0D:22:4F:A4:94:9D:6D:CF:C5:B0:B5:34:D9:48:35:D0:93:41:44:E5:A2:65:31:CC:94:D1"
+      ]
+    }
+  }
+]
