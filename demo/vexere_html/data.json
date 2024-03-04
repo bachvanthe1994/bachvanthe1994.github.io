@@ -1,0 +1,154 @@
+[
+    {
+        "en": {
+            "title": "How do I book a trip?",
+            "content": "To book a trip, you need to select your starting point and destination (select a return trip if you're booking a round trip), then choose the type of vehicle you want to use and confirm the booking details before proceeding to make the payment."
+        },
+        "vi": {
+            "title": "Làm cách nào để đặt một chuyến đi?",
+            "content": "Để đặt chuyến đi, Quý khách cần chọn điểm xuất phát và điểm đến (chọn thêm chiều về nếu Quý khách đặt vé khứ hồi), sau đó chọn loại xe Quý khách muốn sử dụng và xác nhận các thông tin đặt xe và tiến hành thanh toán."
+        }
+    },
+    {
+        "en": {
+            "title": "How can I book a ride for someone else?",
+            "content": "You can book a ride for someone else by modifying passenger information before confirming the booking. You'll need to enter the passenger's name and phone number."
+        },
+        "vi": {
+            "title": "Làm cách nào để đặt xe cho người khác?",
+            "content": "Quý khách có thể đặt xe cho người khác bằng cách thay đổi thông tin hành khách trước khi xác nhận đặt xe. Quý khách cần nhập tên và số điện thoại của hành khách."
+        }
+    },
+    {
+        "en": {
+            "title": "Can I book a ride in advance?",
+            "content": "Yes, you can book a ride in advance for a specific period before you want to start the journey."
+        },
+        "vi": {
+            "title": "Tôi có thể đặt xe trước không?",
+            "content": "Có, Quý khách có thể đặt xe trước một khoảng thời gian cố định trước khi Quý khách muốn bắt đầu chuyến đi."
+        }
+    },
+    {
+        "en": {
+            "title": "Where will the ticket be sent after payment?",
+            "content": "After payment, the ticket will be sent via OTT (Over-The-Top) messaging or email to the address you specified."
+        },
+        "vi": {
+            "title": "Sau khi thanh toán vé sẽ được gửi về đâu?",
+            "content": "Sau khi thanh toán, vé sẽ gửi qua OTT/email mà Quý khách đã chỉ định"
+        }
+    },
+    {
+        "en": {
+            "title": "If there are changes to the trip's schedule, how will I be notified?",
+            "content": "If there are any changes to the trip's schedule, the transportation company you booked with or the hotline at <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a> will directly notify you about the status of the trip through text messages and the email you provided during the booking process."
+        },
+        "vi": {
+            "title": "Nếu lịch trình của chuyến đi có sự thay đổi, tôi sẽ nhận được thông báo bằng cách nào?",
+            "content": "Nếu lịch trình có sự thay đổi, nhà xe mà Quý khách đã đặt hoặc tổng đài hỗ trợ <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a> sẽ trực tiếp gửi thông báo về tình trạng chuyến đi thông qua tin nhắn số điện thoại và email Quý khách đã đăng ký khi đặt vé."
+        }
+    }
+    ,
+    {
+        "en": {
+            "title": "Do I need to wait for the driver at the Pickup and Drop-off points?",
+            "content": "The waiting time at Pickup and Drop-off points may vary depending on traffic conditions and distance. Drivers typically notify you through the app or mobile phone when they arrive and when they are near the Pickup or Drop-off point. You should monitor information from the driver and be ready to board the vehicle when you receive the notification."
+        },
+        "vi": {
+            "title": "Tôi cần phải chờ tài xế ở điểm Đón và Trả không? ",
+            "content": "Thời gian chờ ở điểm Đón và Trả có thể thay đổi tùy thuộc vào tình trạng giao thông và khoảng cách. Tài xế thường thông báo qua ứng dụng hoặc điện thoại di động khi họ đến và khi họ đang ở gần điểm đón hoặc trả. Bạn nên theo dõi thông tin từ tài xế và sẵn sàng lên xe khi nhận được thông báo."
+        }
+    },
+    {
+        "en": {
+            "title": "What if I want to change the Pickup or Drop-off point after booking?",
+            "content": "Please call the transportation company to inform them if you want to change the Pickup or Drop-off points or contact the long-distance booking service hotline <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a>. However, changing these points may affect waiting times and fares, so you should carefully consider it before making changes."
+        },
+        "vi": {
+            "title": "Làm thế nào nếu tôi muốn thay đổi điểm Đón hoặc Trả sau khi đã đặt xe? ",
+            "content": "Quý khách vui lòng gọi cho nhà xe để thông báo việc muốn đổi điểm đón/trả hoặc liên hệ với tổng đài dịch vụ Đặt xe liên tỉnh <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a>,. Tuy nhiên việc thay đổi có thể ảnh hưởng đến thời gian chờ và giá cước, vì vậy Quý khách nên xem xét cẩn thận trước khi thay đổi."
+        }
+    },
+    {
+        "en": {
+            "title": "How can I make payments for my trip?",
+            "content": "You can make payments using your bank account within the banking app you are currently using when using the long-distance booking service."
+        },
+        "vi": {
+            "title": "Làm cách nào để thanh toán cho chuyến đi của mình?",
+            "content": "Quý khách có thể thanh toán bằng tài khoản ngân hàng trong ứng dụng ngân hàng đang sử dụng khi sử dụng dịch vụ Đặt xe liên tỉnh."
+        }
+    },
+    {
+        "en": {
+            "title": "How is the price of the trip calculated?",
+            "content": "The price of the trip is calculated based on the distance, time, and the type of vehicle you choose. You can view the estimated price before confirming the booking."
+        },
+        "vi": {
+            "title": "Làm cách nào để tính toán giá chuyến đi?",
+            "content": "Giá chuyến đi được tính dựa trên khoảng cách, thời gian và loại xe Quý khách chọn. Quý khách có thể xem giá ước tính trước khi xác nhận đặt xe."
+        }
+    },
+    {
+        "en": {
+            "title": "Why can the price change while I'm booking?",
+            "content": "The price may change due to factors such as traffic conditions, time, and demand. The final price will be determined when you confirm the booking."
+        },
+        "vi": {
+            "title": "Tại sao giá có thể thay đổi trong khi tôi đặt xe?",
+            "content": "Giá có thể thay đổi do yếu tố như tình trạng giao thông, thời gian và nhu cầu. Giá cuối cùng sẽ được xác định khi Quý khách xác nhận đặt xe."
+        }
+    },
+    {
+        "en": {
+            "title": "Does the price of the intercity bus service include taxes and fees?",
+            "content": "Whether the price you pay for the intercity bus service includes VAT or not will be displayed when you select the bus company."
+        },
+        "vi": {
+            "title": "Giá vé xe khách trên Dịch vụ Đặt xe liên tỉnh đã bao gồm thuế phí chưa?",
+            "content": "Giá vé xe khách mà Quý khách trả có VAT hay chưa sẽ được hiển thị ở ngay lúc chọn nhà xe."
+        }
+    }
+    ,
+    {
+        "en": {
+            "title": "Where can I view the regulations of the bus company?",
+            "content": "In each list of available bus trips for booking, there will be a “Regulations Details” section where customers can access information about the regulations of that specific bus company."
+        },
+        "vi": {
+            "title": "Xem quy định của nhà xe ở đâu?",
+            "content": "Ở mỗi nhà xe sẽ có phần Chi tiết quy định để Khách hàng có thể nắm thông tin về quy định của nhà xe đó"
+        }
+    },
+    {
+        "en": {
+            "title": "What should I do if I encounter an issue?",
+            "content": "In case you encounter issues such as not receiving a ticket code after payment or entering customer information incorrectly, please call the customer support hotline of the intercity booking service at <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a>."
+        },
+        "vi": {
+            "title": "Khi tôi gặp sự cố, tôi có thể làm gì?",
+            "content": "Trong trường hợp Quý khách gặp sự cố như thanh toán xong không có mã vé gửi về; viết sai thông tin khách hàng;... Quý khách vui lòng gọi điện để tổng đài CSKH của dịch vụ Đặt xe liên tỉnh <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a>."
+        }
+    },
+    {
+        "en": {
+            "title": "What if I arrive at the bus stop later than the scheduled departure time?",
+            "content": "You can contact the customer support hotline of the intercity booking service at <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a> for further assistance."
+        },
+        "vi": {
+            "title": "Nếu ra bến muộn hơn giờ xuất phát đã thông báo",
+            "content": "Quý khách có thể liên hệ với hotline CSKH  của dịch vụ Đặt xe liên tỉnh <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a> để nhận thêm trợ giúp"
+        }
+    },
+    {
+        "en": {
+            "title": "I'm experiencing technical difficulties with the app. How can I get support?",
+            "content": "You can contact our customer support team through the app or the support phone number <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a>."
+        },
+        "vi": {
+            "title": "Tôi gặp sự cố kỹ thuật khi sử dụng ứng dụng. Làm cách nào để nhận được hỗ trợ?",
+            "content": "Quý khách có thể liên hệ với bộ phận hỗ trợ khách hàng của chúng tôi thông qua ứng dụng hoặc số điện thoại hỗ trợ <a href='javascript:void(0)' data-toggle='modal' data-target='#modalAlert'>*6789</a>."
+        }
+    }
+] 

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<base href="../.">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<title>Trợ giúp</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100;200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="css/vendors/bootstrap/bootstrap.bundles.css">
+	<!-- end bootstrap -->
+	<!-- css use for this page only -->
+	<!-- end css use for this page only -->
+	<!-- css use for this page only -->
+	<!-- end css use for this page only -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/custom.bundles.css">
+	<link rel="shortcut icon" type="text/html" href="media/favicon/favicon.png">
+	<meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+</head>
+
+<body>
+	<div class="contentpage bg-white">
+		<header id="main-header-id" class="main-header ubg-invert ">
+			<div class="row row-0 align-items-center">
+				<div class="col-auto" style="margin-left: 8px;">
+					<!-- button.button -->
+					<a id="go-back"
+						class="ubg-transparent ubox-size-button-default ubox-square ubg-hover ubg-active ubtn">
+						<span class="ubtn-ic ubtn-ic-left">
+							<img src="media/chevron-left.svg" alt="">
+						</span>
+					</a>
+					<!-- end button.button -->
+				</div>
+				<div class="col">
+					<h2 class="weight5 "><strong>Trợ giúp</strong></h2>
+				</div>
+			</div>
+		</header>
+		<header class="ubg-invert bg-faq">
+			<div class="row row-0 align-items-center">
+				<div class="col">
+					<div class="form-group">
+						<div class="input-group-wrap input-default input-size-default input-group-vertical">
+							<label class="input-inner-wrap">
+								<input type="" class="input input-search"
+									placeholder="Bạn có câu hỏi?" id="searchInput">
+								<div class="input-extend input-extend-right">
+									<div class="input-box input-ic-clear"></div>
+								</div>
+							</label>
+						</div>
+						<div class="errorBlock"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="main">
+			<div class="main-wrap">
+				<div class="main-inner main-inner-page">
+					<div class="container-10">
+						<div class="mt24 mb24">
+							<div class="listcate mb24">
+								<a class="cate__item" href="" data-toggle="modal" data-target="#modalAlert">
+									<div class="icon">
+										<img src="media/tongdai.svg" />
+									</div>
+									<div class="title-faq">
+										<span>Tổng đài</span>
+									</div>
+								</a>
+								<a class="cate__item" href="vi/tro-giup-dat-xe.html">
+									<div class="icon">
+										<img src="media/datxe.svg" />
+									</div>
+									<div class="title-faq">
+										<span>Đặt xe</span>
+									</div>
+								</a>
+								<a class="cate__item" href="vi/tro-giup-don-tra.html">
+									<div class="icon">
+										<img src="media/dontra.svg" />
+									</div>
+									<div class="title-faq">
+										<span>Đón trả</span>
+									</div>
+								</a>
+								<a class="cate__item" href="vi/tro-giup-quy-dinh.html">
+									<div class="icon">
+										<img src="media/quydinh.svg" />
+									</div>
+									<div class="title-faq">
+										<span>Quy định</span>
+									</div>
+								</a>
+								<a class="cate__item" href="vi/tro-giup-su-co.html">
+									<div class="icon">
+										<img src="media/suco.svg" />
+									</div>
+									<div class="title-faq">
+										<span>Sự cố</span>
+									</div>
+								</a>
+								<a class="cate__item" href="vi/tro-giup-huong-dan.html">
+									<div class="icon">
+										<img src="media/huongdan.svg" />
+									</div>
+									<div class="title-faq">
+										<span>Hướng dẫn</span>
+									</div>
+								</a>
+							</div>
+							<div class="box-accordion-group list-mb12" data-accordion-group="data-accordion-group" id="faqGroup">
+								<div class="box-accordion faq-accordion open open-init" data-accordion="data-accordion">
+									<div class="box__header fz-h2" data-control>
+										accordion header
+									</div>
+									<div class="box-accordion__body" data-content="data-content">
+										<div>
+										 accordion content
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="fixed-footer">
+			<a id="book-now" class="ubg-primary ubox-size-button-default ubg-hover ubg-active ubtn">
+				<div class="ubtn-inner">
+					<span class="ubtn-text">Đặt vé ngay</span>
+				</div>
+			</a>
+		</div>
+	</div>
+</body>
+<div class="modal fade text-center modal-alert modal-alert-blank" id="modalAlert" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered modal-size-alert-default modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-wrap">
+					<div class="modal-title-wrap list-mb16 list-crop">
+						<h2 class="modal-title">
+							<b>Thông báo</b>
+						</h2>
+					</div>
+					<div class="modal-header-extend"></div>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="modal-body-inner">Thực hiện cuộc gọi tới tổng đài
+					*6789</div>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<!-- button.btnGroup -->
+				<div
+					class="ubtn-group list-mb16 list-crop row row-16 justify-content-center group-col-md-3 group-col-fill">
+					<div class="group-col-item">
+						<!-- button.button -->
+						<a data-dismiss="modal"
+							class="ubg-secondary ubox-size-button-default ubg-hover ubg-active ubtn">
+							<div class="ubtn-inner">
+								<span class="ubtn-text">Huỷ bỏ</span>
+							</div>
+						</a>
+						<!-- end button.button -->
+					</div>
+					<div class="group-col-item">
+						<!-- button.button -->
+						<a href="tel:*6789" class="ubg-primary ubox-size-button-default ubg-hover ubg-active ubtn">
+							<div class="ubtn-inner">
+								<span class="ubtn-text">Đồng ý</span>
+							</div>
+						</a>
+						<!-- end button.button -->
+					</div>
+				</div>
+				<!-- end button.btnGroup -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end modal.modal -->
+<!-- ie11polyfills -->
+<script src="js/vendors/ie11polyfills/ie11polyfills.bundles.js"></script>
+<!-- ie11polyfills -->
+<!-- jquery -->
+<script src="js/vendors/jquery/jquery.bundles.js"></script>
+<script src="js/vendors/jquery/jquery.init.js"></script>
+<!-- jquery -->
+<!-- iosInnerHeight -->
+<script src="js/vendors/iosInnerHeight/iosInnerHeight.bundles.js"></script>
+<script src="js/vendors/iosInnerHeight/iosInnerHeight.init.js"></script>
+<!-- iosInnerHeight -->
+<!-- popper -->
+<script src="js/vendors/popper/popper.bundles.js"></script>
+<!-- popper -->
+<!-- bootstrap -->
+<script src="js/vendors/bootstrap/bootstrap.bundles.js"></script>
+<script src="js/vendors/bootstrap/bootstrap.init.js"></script>
+<!-- bootstrap -->
+<!-- jqueryAccordion -->
+<script src="js/vendors/jquery-accordion/jquery-accordion.bundles.js"></script>
+<script src="js/vendors/jquery-accordion/jquery-accordion.init.js"></script>
+<!-- jqueryAccordion -->
+<!-- cleave -->
+<script src="js/vendors/cleave/cleave.bundles.js"></script>
+<script src="js/vendors/cleave/cleave.init.js"></script>
+<!-- cleave -->
+<script src="js/safearea-vi.js"></script>
+</html>
