@@ -2,6 +2,13 @@ var checkSafeArea = function() {
   var url_string = window.location.href; 
   var url = new URL(url_string);
   var safeAreaTop = url.searchParams.get("safeAreaTop");
+
+  if (safeAreaTop == undefined) {
+    safeAreaTop = Number(localStorage['safeAreaTop'])
+  }
+
+  localStorage['safeAreaTop'] = safeAreaTop
+  
   console.log(safeAreaTop);
   console.log("document.getElementById('main-header-id')", document.getElementById('main-header-id'))
   document.getElementById('main-header-id').style.marginTop = `${safeAreaTop}px`;
