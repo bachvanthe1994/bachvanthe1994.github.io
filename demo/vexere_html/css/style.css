@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "Roboto-Flex Regular";
   src: url(../css/fonts/Roboto-Flex-Regular.otf);
   font-weight: regular;
@@ -20,6 +20,10 @@
   font-family: "Roboto-Flex Black";
   src: url(../css/fonts/Roboto-Flex-Bold.otf);
   font-weight: 700;
+} */
+
+* {
+  font-family: "Arial";
 }
 
 /*-------------vertical align-----------------*/
@@ -2474,7 +2478,7 @@ select {
     display: inline-block;
     zoom: 1;
     /* Fix for IE7 */
-    *display: inline;
+    /* display: inline; */
     /* Fix for IE7 */
     height: 100%;
     vertical-align: middle;
@@ -2501,7 +2505,7 @@ select {
     display: inline-block;
     zoom: 1;
     /* Fix for IE7 */
-    *display: inline;
+    /* *display: inline; */
     /* Fix for IE7 */
     height: 100%;
     vertical-align: middle;
@@ -2529,7 +2533,7 @@ select {
     vertical-align: top;
     zoom: 1;
     /* Fix for IE7 */
-    *display: inline;
+    /* *display: inline; */
     /* Fix for IE7 */
     float: right;
   }
@@ -2573,7 +2577,7 @@ select {
     display: inline-block;
     zoom: 1;
     /* Fix for IE7 */
-    *display: inline;
+    /* *display: inline; */
     /* Fix for IE7 */
     vertical-align: middle;
     width: 100%;

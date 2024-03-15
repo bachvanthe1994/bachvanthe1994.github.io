@@ -1,26 +1,22 @@
-@font-face {
-  font-family: "Roboto-Flex Regular";
-  src: url(../css/fonts/RobotoFlex-Variable.ttf);
+/* @font-face {
+  font-family: "sans-serif";
   font-weight: regular;
 }
 
 @font-face {
-  font-family: "Roboto-Flex Medium";
-  src: url(../css/fonts/RobotoFlex-Variable.ttf);
+  font-family: "sans-serif";
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Roboto-Flex Bold";
-  src: url(../css/fonts/RobotoFlex-Variable.ttf);
+  font-family: "sans-serif";
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Roboto-Flex Black";
-  src: url(../css/fonts/RobotoFlex-Variable.ttf);
+  font-family: "sans-serif";
   font-weight: 700;
-}
+} */
 
 .header__trans {
   margin-top: 20px;
