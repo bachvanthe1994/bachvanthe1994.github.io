@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
   font-family: "Roboto-Flex Regular";
   src: url(../css/fonts/RobotoFlex-Variable.ttf);
   font-weight: regular;
@@ -20,7 +20,7 @@
   font-family: "Roboto-Flex Black";
   src: url(../css/fonts/RobotoFlex-Variable.ttf);
   font-weight: 700;
-} */
+}
 
 .header__trans {
   margin-top: 20px;
