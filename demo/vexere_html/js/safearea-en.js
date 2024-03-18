@@ -17,6 +17,14 @@ var checkSafeArea = function() {
   checkSafeArea();
 
 
+  document.getElementById('go-back').addEventListener('click', function() {
+    history.back()
+  });
+
+  document.getElementById('book-now-en').addEventListener('click', function() {
+    history.back()
+  });
+
 const searchInput = $('#searchInput');
 const faqGroup = $('#faqGroup');
 const DATA_JSON_URL = './data.json';

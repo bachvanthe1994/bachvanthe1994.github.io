@@ -21,7 +21,7 @@ var checkSafeArea = function() {
     history.back()
   });
 
-  document.getElementById('book-now').addEventListener('click', function() {
+  document.getElementById('book-now-vi').addEventListener('click', function() {
     history.back()
   });
 

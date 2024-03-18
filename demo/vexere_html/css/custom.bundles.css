@@ -1023,19 +1023,19 @@ h6,
 b,
 .b,
 .b1 {
-  font-family: "Roboto-Flex Bold";
+  font-family: "Arial";
 }
 
 .ubtn,
 .nav-style-default,
 .nav-link,
 input::placeholder {
-  font-family: "Roboto-Flex Regular";
+  font-family: "Arial";
 }
 
 h1,
 .h1 {
-  font-family: "Roboto-Flex Black";
+  font-family: "Arial";
 }
 
 
@@ -1212,7 +1212,7 @@ h3,
 
 .form-voucher-search .form-control::placeholder {
   color: var(--color-grey-2);
-  font-family: "Roboto-Flex Regular" !important;
+  font-family: "Arial" !important;
 }
 
 .form-voucher-search .form-control-search-voucher {
