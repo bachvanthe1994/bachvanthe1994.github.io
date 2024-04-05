@@ -15241,9 +15241,18 @@ class AnnotationEditorUIManager {
 
 
 function createFetchOptions(headers, withCredentials, abortController) {
+  let _header = {
+    ...headers,
+    "Access-Control-Allow-Origin": "https://bachvanthe1994.github.io/",
+    "Access-Control-Allow-Headers": "range",
+    "Access-Control-Expose-Headers": "Origin, Content-Type, Accept",
+    "Access-Control-Allow-Methods": "GET",
+    'Access-Control-Allow-Credentials': 'true'
+  }
+  console.log("_header", _header);
   return {
     method: "GET",
-    headers: headers,
+    headers: _header,
     signal: abortController.signal,
     mode: "no-cors",
     credentials: withCredentials ? "include" : "same-origin",
