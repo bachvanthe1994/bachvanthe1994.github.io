@@ -12,48 +12,80 @@ function yourFunction() {
   var url =
     "https://partner.vnticketonline.vn/Resource/PDF/Ticket/20240511/9Y5IHV/69052197/80/05B06623F961C6DB1173CAE690B6799D/1712281879";
 
-  // Loaded via <script> tag, create shortcut to access PDF.js exports.
-  var { pdfjsLib } = globalThis;
+  fetch(url, {
+    cache: "no-cache",
+    mode: "no-cors",
+    method: "GET",
+    redirect: "follow",
+  })
+    .then(async (res) => {
+      console.log("res", res);
+      var blob = await res.blob();
+      var reader = new FileReader();
+      reader.addEventListener(
+        "load",
+        function () {
+          console.log("success", reader.result);
+          // setImageBase64(reader.result as any);
+        },
+        false
+      );
+      reader.onerror = (err) => {
+        console.log("reader.onerror 1", err, src);
+        // if (props.onError) {
+        //   props.onError();
+        // }
+      };
+      reader.readAsDataURL(blob);
+    })
+    .catch((err) => {
+      console.log("fetch.error 2", err, src);
+    });
 
-  // The workerSrc property shall be specified.
-  pdfjsLib.GlobalWorkerOptions.workerSrc = "pdf.worker.mjs";
+  // var pdfData = atob(``);
 
-  // Asynchronous download of PDF
-  var loadingTask = pdfjsLib.getDocument(url);
-  loadingTask.promise.then(
-    function (pdf) {
-      console.log("PDF loaded");
+  // // Loaded via <script> tag, create shortcut to access PDF.js exports.
+  // var { pdfjsLib } = globalThis;
 
-      // Fetch the first page
-      var pageNumber = 1;
-      pdf.getPage(pageNumber).then(function (page) {
-        console.log("Page loaded");
+  // // The workerSrc property shall be specified.
+  // pdfjsLib.GlobalWorkerOptions.workerSrc = "pdf.worker.mjs";
 
-        var scale = 1.5;
-        var viewport = page.getViewport({ scale: scale });
+  // // Asynchronous download of PDF
+  // var loadingTask = pdfjsLib.getDocument({ data: pdfData });
+  // loadingTask.promise.then(
+  //   function (pdf) {
+  //     console.log("PDF loaded");
 
-        // Prepare canvas using PDF page dimensions
-        var canvas = document.getElementById("the-canvas");
-        var context = canvas.getContext("2d");
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+  //     // Fetch the first page
+  //     var pageNumber = 1;
+  //     pdf.getPage(pageNumber).then(function (page) {
+  //       console.log("Page loaded");
 
-        // Render PDF page into canvas context
-        var renderContext = {
-          canvasContext: context,
-          viewport: viewport,
-        };
-        var renderTask = page.render(renderContext);
-        renderTask.promise.then(function () {
-          console.log("Page rendered");
-        });
-      });
-    },
-    function (reason) {
-      // PDF loading error
-      console.error(reason);
-    }
-  );
+  //       var scale = 1.5;
+  //       var viewport = page.getViewport({ scale: scale });
+
+  //       // Prepare canvas using PDF page dimensions
+  //       var canvas = document.getElementById("the-canvas");
+  //       var context = canvas.getContext("2d");
+  //       canvas.height = viewport.height;
+  //       canvas.width = viewport.width;
+
+  //       // Render PDF page into canvas context
+  //       var renderContext = {
+  //         canvasContext: context,
+  //         viewport: viewport,
+  //       };
+  //       var renderTask = page.render(renderContext);
+  //       renderTask.promise.then(function () {
+  //         console.log("Page rendered");
+  //       });
+  //     });
+  //   },
+  //   function (reason) {
+  //     // PDF loading error
+  //     console.error(reason);
+  //   }
+  // );
 }
 
 window.addEventListener
