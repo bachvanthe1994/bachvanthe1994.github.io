@@ -10,7 +10,7 @@ function yourFunction() {
   // If absolute URL from the remote server is provided, configure the CORS
   // header on that server.
   var url =
-    "https://partner.vnticketonline.vn/Resource/PDF/Ticket/20240511/9Y5IHV/69052197/80/05B06623F961C6DB1173CAE690B6799D/1712281879";
+    "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf";
 
   fetch(url, {
     cache: "no-cache",
@@ -42,50 +42,51 @@ function yourFunction() {
       console.log("fetch.error 2", err, src);
     });
 
-  // var pdfData = atob(``);
+  var url =
+    "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf";
 
-  // // Loaded via <script> tag, create shortcut to access PDF.js exports.
-  // var { pdfjsLib } = globalThis;
+  // Loaded via <script> tag, create shortcut to access PDF.js exports.
+  var { pdfjsLib } = globalThis;
 
-  // // The workerSrc property shall be specified.
-  // pdfjsLib.GlobalWorkerOptions.workerSrc = "pdf.worker.mjs";
+  // The workerSrc property shall be specified.
+  pdfjsLib.GlobalWorkerOptions.workerSrc = "pdf.worker.mjs";
 
-  // // Asynchronous download of PDF
-  // var loadingTask = pdfjsLib.getDocument({ data: pdfData });
-  // loadingTask.promise.then(
-  //   function (pdf) {
-  //     console.log("PDF loaded");
+  // Asynchronous download of PDF
+  var loadingTask = pdfjsLib.getDocument(url);
+  loadingTask.promise.then(
+    function (pdf) {
+      console.log("PDF loaded");
 
-  //     // Fetch the first page
-  //     var pageNumber = 1;
-  //     pdf.getPage(pageNumber).then(function (page) {
-  //       console.log("Page loaded");
+      // Fetch the first page
+      var pageNumber = 1;
+      pdf.getPage(pageNumber).then(function (page) {
+        console.log("Page loaded");
 
-  //       var scale = 1.5;
-  //       var viewport = page.getViewport({ scale: scale });
+        var scale = 1.5;
+        var viewport = page.getViewport({ scale: scale });
 
-  //       // Prepare canvas using PDF page dimensions
-  //       var canvas = document.getElementById("the-canvas");
-  //       var context = canvas.getContext("2d");
-  //       canvas.height = viewport.height;
-  //       canvas.width = viewport.width;
+        // Prepare canvas using PDF page dimensions
+        var canvas = document.getElementById("the-canvas");
+        var context = canvas.getContext("2d");
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
 
-  //       // Render PDF page into canvas context
-  //       var renderContext = {
-  //         canvasContext: context,
-  //         viewport: viewport,
-  //       };
-  //       var renderTask = page.render(renderContext);
-  //       renderTask.promise.then(function () {
-  //         console.log("Page rendered");
-  //       });
-  //     });
-  //   },
-  //   function (reason) {
-  //     // PDF loading error
-  //     console.error(reason);
-  //   }
-  // );
+        // Render PDF page into canvas context
+        var renderContext = {
+          canvasContext: context,
+          viewport: viewport,
+        };
+        var renderTask = page.render(renderContext);
+        renderTask.promise.then(function () {
+          console.log("Page rendered");
+        });
+      });
+    },
+    function (reason) {
+      // PDF loading error
+      console.error(reason);
+    }
+  );
 }
 
 window.addEventListener
