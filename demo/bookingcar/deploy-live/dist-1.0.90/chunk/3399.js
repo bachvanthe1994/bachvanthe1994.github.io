@@ -1,0 +1,1 @@
+"use strict";(self.webpackJsonp=self.webpackJsonp||[]).push([[3399],{"83399":function(n,o,e){e.r(o),e.d(o,{"vnmf_open_data_core":function(){return p}});var r=e(60392),p=function(){function t(n){(0,r.r)(this,n)}return t.prototype.componentDidLoad=function(){console.error("H5 Not yet supported OpenData Component！")},t.prototype.render=function(){return(0,r.h)(r.H,null)},t}()}}]);

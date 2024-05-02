@@ -1,0 +1,1 @@
+"use strict";(self.webpackJsonp=self.webpackJsonp||[]).push([[2748],{"32748":function(n,t,e){e.r(t),e.d(t,{"vnmf_ad_custom_core":function(){return u}});var r=e(60392),u=function(){function o(n){(0,r.r)(this,n)}return o.prototype.componentDidLoad=function(){console.error("H5 Not yet supported AdCustom Component！")},o.prototype.render=function(){return(0,r.h)(r.H,null)},o}()}}]);
