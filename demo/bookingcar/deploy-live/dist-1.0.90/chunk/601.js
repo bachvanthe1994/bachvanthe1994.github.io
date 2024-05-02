@@ -1,1 +1,0 @@
-"use strict";(self.webpackJsonp=self.webpackJsonp||[]).push([[601],{"20601":function(n,t,e){e.r(t),e.d(t,{"vnmf_custom_wrapper_core":function(){return o}});var u=e(60392),o=function(){function r(n){(0,u.r)(this,n)}return r.prototype.render=function(){return(0,u.h)(u.H,null)},r}()}}]);
