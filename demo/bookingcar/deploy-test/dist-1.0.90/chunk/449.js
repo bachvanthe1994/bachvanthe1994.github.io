@@ -1,1 +1,0 @@
-"use strict";(self.webpackJsonp=self.webpackJsonp||[]).push([[449],{"20449":function(n,t,r){r.r(t),r.d(t,{"vnmf_voip_room_core":function(){return p}});var e=r(60392),p=function(){function o(n){(0,e.r)(this,n)}return o.prototype.componentDidLoad=function(){console.error("H5 Not yet supported VoipRoom Component！")},o.prototype.render=function(){return(0,e.h)(e.H,null)},o}()}}]);

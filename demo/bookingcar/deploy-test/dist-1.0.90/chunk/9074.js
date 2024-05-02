@@ -1,1 +1,0 @@
-"use strict";(self.webpackJsonp=self.webpackJsonp||[]).push([[9074],{"39074":function(n,o,e){e.r(o),e.d(o,{"vnmf_camera_core":function(){return c}});var t=e(60392),c=function(){function r(n){(0,t.r)(this,n)}return r.prototype.componentDidLoad=function(){console.error("H5 Not yet supported Camera Component！")},r.prototype.render=function(){return(0,t.h)(t.H,null)},r}()}}]);
