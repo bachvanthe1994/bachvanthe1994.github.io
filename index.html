@@ -1,10 +1,190 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <head>
-  <body>
-    <script>
-      window.location.replace("https://bachvanthe1994.github.io/blog");
-    </script>
-  </body>
- <html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Phần mềm Text to Speech chuyển đổi văn bản sang âm thanh, hỗ trợ Windows và Ubuntu, cài đặt dễ dàng, chất lượng âm thanh cao.">
+    <meta name="keywords" content="Text to Speech, chuyển văn bản sang âm thanh, phần mềm TTS, Windows, Ubuntu, tạo giọng đọc, làm slide, truyện audio">
+    <meta name="author" content="Text to Speech Team">
+    <title>Text to Speech - Phần mềm chuyển văn bản sang âm thanh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0078D4;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+        main {
+            padding: 10px;
+            max-width: 900px;
+            margin: 10px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+        }
+        section h1, h2 {
+            color: #0078D4;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 16px;
+        }
+        a {
+            color: #0078D4;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            margin: 0 0 10px 20px;
+            padding: 0;
+        }
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        iframe {
+            width: 48%;
+            height: 150px;
+            border: none;
+        }
+        .warning ul {
+            list-style: none;
+            padding: 0;
+        }
+        .warning ul li {
+            margin-bottom: 5px;
+        }
+        .warning ul li span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .text-green {
+            color: green;
+        }
+        .text-red {
+            color: red;
+        }
+        footer {
+            text-align: center;
+            padding: 5px 0;
+            background: #333;
+            color: #fff;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header style="text-align: center; padding: 20px; background-color: #007bff; color: #fff;">
+      <h1 style="margin: 0; font-size: 2em;">Text to Speech - Chuyển Văn Bản Thành Âm Thanh</h1>
+      <p style="margin: 10px 0 0; font-size: 1.2em;">
+          Tạo giọng đọc Tiếng Việt tự nhiên, tùy chỉnh ngữ điệu và phong cách. Hỗ trợ chạy trên Windows và Ubuntu.
+      </p>
+    </header>
+    <main>
+      <section>
+        <h2>Giới thiệu</h2>
+        <p>
+            <strong>Text to Speech (TTS)</strong> là phần mềm tiên tiến cho phép bạn chuyển đổi văn bản thành giọng nói Tiếng Việt tự nhiên và sống động. Phần mềm được thiết kế đặc biệt để phục vụ nhiều mục đích như:
+            <strong>tạo truyện audio</strong>, <strong>làm thuyết minh video</strong>, <strong>soạn bài giảng</strong>, hoặc sử dụng trong các trợ lý ảo, chatbot và nhiều ứng dụng khác.
+        </p>
+        <p>
+            Một trong những điểm mạnh nổi bật của phần mềm là khả năng <strong>tùy chỉnh nhiều giọng đọc khác nhau</strong> dựa trên âm thanh đầu vào, mang lại sự đa dạng và phù hợp với từng nhu cầu sử dụng cụ thể. Từ giọng nam trầm ấm, giọng nữ nhẹ nhàng, đến các phong cách đọc truyện hoặc đọc thuyết minh chuyên nghiệp, phần mềm đều có thể đáp ứng. 
+        </p>
+        <p>
+            Phần mềm chạy hoàn toàn trên máy tính cá nhân, không giới hạn ký tự và không yêu cầu kết nối internet trong quá trình sử dụng, đảm bảo tính bảo mật và tiện lợi. Chỉ cần một chiếc máy tính chạy hệ điều hành <strong>Windows hoặc Ubuntu</strong>, được trang bị card đồ họa NVIDIA, bạn đã có thể sử dụng phần mềm để tạo ra các bản thu âm chất lượng cao một cách nhanh chóng và dễ dàng.
+        </p>
+      </section>
+      <section>
+          <h2>Tính năng nổi bật</h2>
+          <ul>
+              <li>Cài đặt trên Windows hoặc Ubuntu, yêu cầu máy có card đồ họa NVIDIA.</li>
+              <li>Chạy offline, không giới hạn ký tự khi chuyển đổi.</li>
+              <li>Đầu vào: File âm thanh và file văn bản.</li>
+              <li>Đầu ra: File âm thanh đã được đọc.</li>
+              <li>Tốc độ gen: Khoảng 2 giây tạo được 200 ký tự.</li>
+              <li>Hỗ trợ train với 888k giọng đọc, tạo âm thanh chất lượng cao.</li>
+              <li>Tùy chỉnh ngữ điệu giọng đọc dựa trên âm thanh đầu vào và thông số cài đặt.</li>
+          </ul>
+      </section>
+      <section>
+          <h2>Ví dụ về âm thanh</h2>
+          <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/DFgxfbmdQhA" title="Ví dụ 1"></iframe>
+              <iframe src="https://www.youtube.com/embed/xmnL4HKnQE8" title="Ví dụ 2"></iframe>
+          </div>
+      </section>
+      <br/>
+      <br/>
+      <section>
+          <h2>Điều khoản sử dụng và cảnh báo trách nhiệm</h2>
+          <div>
+              <div class="text-green">
+                <h3>Mục đích sử dụng hợp pháp ✔️</h3>
+                <ul>
+                    <li><span class="text-green">✔️</span> Nghiên cứu, phát triển nội dung.</li>
+                    <li><span class="text-green">✔️</span> Hỗ trợ giáo dục và cải thiện trải nghiệm người dùng.</li>
+                </ul>
+              </div>
+              <div class="text-red">
+                <h3>Các hành vi bị nghiêm cấm ❌</h3>
+                <ul>
+                    <li><span class="text-red">❌</span> Mạo danh người khác để lừa đảo hoặc gây nhầm lẫn.</li>
+                    <li><span class="text-red">❌</span> Xâm phạm quyền riêng tư hoặc sở hữu trí tuệ.</li>
+                    <li><span class="text-red">❌</span> Sử dụng phần mềm tạo nội dung độc hại hoặc vi phạm pháp luật.</li>
+                </ul>
+              </div>
+              <h3>Phạm vi trách nhiệm</h3>
+              <p>Tôi chỉ hỗ trợ cài đặt phần mềm và hướng dẫn sử dụng cơ bản. Mọi nội dung tạo ra là trách nhiệm của người dùng.</p>
+              <p>Việc vi phạm điều khoản có thể dẫn đến xử phạt hành chính hoặc truy cứu trách nhiệm pháp lý.</p>
+          </div>
+      </section>
+      <section>
+        <h2>Nguồn phần mềm</h2>
+        <ul>
+            <li><a href="https://github.com/SWivid/F5-TTS" target="_blank">https://github.com/SWivid/F5-TTS</a></li>
+            <li><a href="https://github.com/thinhlpg/vixtts-demo" target="_blank">https://github.com/thinhlpg/vixtts-demo</a></li>
+        </ul>
+      </section>
+      <section style="border: 1px solid #00bfff; padding: 10px;">
+        <h2>Liên hệ cài đặt</h2>
+        <ul>
+            <li>
+                Facebook: 
+                <a href="https://www.facebook.com/taulathe/" target="_blank">
+                    Bạch Thế
+                </a>
+            </li>
+            <li>Số điện thoại: 0393011786</li>
+            <li>Yêu cầu cài đặt qua biểu mẫu: 
+                <a href="https://docs.google.com/forms/d/190GkTYHOFInrbWmzt2b6ZtWeNW3ZQnQDq4US90UsI8A/edit" target="_blank">
+                    Biểu mẫu yêu cầu cài đặt
+                </a>
+            </li>
+            <li class="text-red">Vui lòng đồng ý với điều khoản sử dụng và cảnh báo trách nhiệm trước khi liên hệ tôi</li>
+        </ul>
+      </section>     
+    </main>
+    <footer style="text-align: center; padding: 10px 0; background-color: #f1f1f1; font-size: 0.9em; color: #555; margin-top: 20px;">
+      <p>&copy; 2024 - Text to Speech | Thiết kế bởi Bạch Thế</p>
+      <p>
+          <a href="https://www.facebook.com/taulathe/" target="_blank" style="text-decoration: none; color: #007bff;">Facebook</a> | 
+          <a href="mailto:support@example.com" style="text-decoration: none; color: #007bff;">Email hỗ trợ</a> | 
+          <a href="https://docs.google.com/forms/d/190GkTYHOFInrbWmzt2b6ZtWeNW3ZQnQDq4US90UsI8A/edit" target="_blank" style="text-decoration: none; color: #007bff;">Liên hệ cài đặt</a>
+      </p>
+    </footer>  
+</body>
+</html>
