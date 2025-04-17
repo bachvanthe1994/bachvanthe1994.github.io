@@ -44,8 +44,12 @@
         const linkElement = document.getElementById("openAppLink");
 
         if (isIOS()) {
-          const iosLink = currentUrl.replace(
+          let iosLink = currentUrl.replace(
             "https://bachvanthe1994.github.io/universalink/checkin?transaction_id=",
+            "vnajsc://checkin/"
+          );
+          iosLink = iosLink.replace(
+            "https://bachvanthe1994.github.io/universalink/checkin/?transaction_id=",
             "vnajsc://checkin/"
           );
           linkElement.href = iosLink;
@@ -64,7 +68,7 @@
   </head>
   <body>
     <a id="openAppLink" href="#"
-      >Tiếp tục Mở App VietnamAirlines (chức năng booking)</a
+      >Tiếp tục Mở App VietnamAirlines (chức năng checkin)</a
     >
   </body>
 </html>

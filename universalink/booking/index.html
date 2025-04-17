@@ -44,8 +44,12 @@
         const linkElement = document.getElementById("openAppLink");
 
         if (isIOS()) {
-          const iosLink = currentUrl.replace(
+          let iosLink = currentUrl.replace(
             "https://bachvanthe1994.github.io/universalink/booking?code=",
+            "vnajsc://booking?code="
+          );
+          iosLink = iosLink.replace(
+            "https://bachvanthe1994.github.io/universalink/booking/?code=",
             "vnajsc://booking?code="
           );
           linkElement.href = iosLink;
