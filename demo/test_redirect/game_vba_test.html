@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agribank - Tết Sung Túc 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        :root {
+            --agri-red: #c0262d;
+            --agri-gold: #ffcc00;
+            --agri-green: #007d32;
+            --agri-dark-red: #8b1a1f;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fdf2f2;
+            overflow-x: hidden;
+        }
+
+        .tet-gradient {
+            background: linear-gradient(135deg, var(--agri-red) 0%, var(--agri-dark-red) 100%);
+        }
+
+        .gold-border {
+            border: 2px solid var(--agri-gold);
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(192, 38, 45, 0.1);
+        }
+
+        /* Pháo hoa giả lập */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Hiệu ứng hoa mai bay */
+        .petal {
+            position: fixed;
+            top: -10%;
+            background-color: #ffeb3b;
+            border-radius: 50% 0 50% 0;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 100;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .mission-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--agri-gold);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: var(--agri-red);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm shadow-md border-b-4 border-[#ffcc00]">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-[#c0262d] flex items-center justify-center rounded-lg text-white font-bold text-xl">A</div>
+                <span class="text-2xl font-bold tracking-tighter text-[#c0262d]">AGRIBANK</span>
+            </div>
+            
+            <div class="flex items-center space-x-6">
+                <div class="text-right hidden sm:block">
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Tài khoản</p>
+                    <p class="font-bold text-[#007d32]">NGUYỄN VĂN A</p>
+                </div>
+                <div class="bg-red-50 px-4 py-2 rounded-full border border-red-100 flex items-center space-x-2">
+                    <span class="text-xl">🧧</span>
+                    <span id="turn-count" class="font-bold text-[#c0262d]">5</span>
+                    <span class="text-sm font-medium">Lượt chơi</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="mt-20">
+        <!-- Hero Section -->
+        <section class="tet-gradient relative py-20 px-4 overflow-hidden text-center text-white">
+            <div class="max-w-4xl mx-auto relative z-10">
+                <h2 class="animate__animated animate__fadeInDown text-yellow-300 font-bold tracking-widest mb-2">XUÂN ẤT TỴ 2025</h2>
+                <h1 class="animate__animated animate__zoomIn text-4xl md:text-6xl font-black mb-6 drop-shadow-lg">
+                    LẮC LỘC VÀNG <br> <span class="text-yellow-400 italic">NGÀN QUÀ SANG</span>
+                </h1>
+                <p class="text-lg opacity-90 mb-10 max-w-2xl mx-auto">
+                    Tham gia đại tiệc lắc quà Tết của Agribank để nhận lì xì lên tới 8.888.888đ và hàng ngàn voucher mua sắm hấp dẫn.
+                </p>
+                
+                <button onclick="startGame()" class="animate__animated animate__pulse animate__infinite bg-yellow-400 hover:bg-yellow-500 text-[#8b1a1f] font-extrabold py-4 px-12 rounded-full text-xl shadow-2xl transform transition hover:scale-105">
+                    CHƠI NGAY 🧧
+                </button>
+            </div>
+            
+            <!-- Trang trí pháo hoa & hoa mai -->
+            <div class="absolute top-10 left-10 text-4xl animate-bounce">🧧</div>
+            <div class="absolute bottom-10 right-10 text-4xl animate-bounce">💰</div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="max-w-5xl mx-auto px-4 -mt-10 mb-20 relative z-20">
+            <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border border-red-50">
+                
+                <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b-2 border-dashed border-gray-100 pb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800">Nhiệm Vụ Nhận Lượt</h3>
+                        <p class="text-gray-500">Hoàn thành các thử thách để nhận thêm lượt lắc lộc</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-sm font-medium text-[#007d32] bg-green-50 px-3 py-1 rounded">
+                        Làm mới sau: <span id="timer">14:22:05</span>
+                    </div>
+                </div>
+
+                <!-- Danh sách nhiệm vụ -->
+                <div class="grid grid-cols-1 gap-4" id="mission-container">
+                    <!-- Mission Item -->
+                    <div class="mission-card group flex items-center justify-between p-5 rounded-2xl bg-gray-50 border-2 border-transparent">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                                📱
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Nạp tiền điện thoại</h4>
+                                <p class="text-sm text-gray-500">Nạp từ 50.000đ qua E-Mobile Banking</p>
+                                <span class="inline-block mt-1 text-xs font-bold text-[#c0262d]">+1 Lượt chơi</span>
+                            </div>
+                        </div>
+                        <button onclick="completeMission(this, 1)" class="bg-[#c0262d] hover:bg-[#8b1a1f] text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all active:scale-95">
+                            Làm nhiệm vụ
+                        </button>
+                    </div>
+
+                    <div class="mission-card group flex items-center justify-between p-5 rounded-2xl bg-gray-50 border-2 border-transparent">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                                🛍️
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Thanh toán VNPAY-QR</h4>
+                                <p class="text-sm text-gray-500">Giao dịch tối thiểu 100.000đ tại cửa hàng</p>
+                                <span class="inline-block mt-1 text-xs font-bold text-[#c0262d]">+2 Lượt chơi</span>
+                            </div>
+                        </div>
+                        <button onclick="completeMission(this, 2)" class="bg-[#c0262d] hover:bg-[#8b1a1f] text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all">
+                            Làm nhiệm vụ
+                        </button>
+                    </div>
+
+                    <div class="mission-card group flex items-center justify-between p-5 rounded-2xl bg-gray-50 border-2 border-transparent">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                                💸
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Chuyển tiền Napas 247</h4>
+                                <p class="text-sm text-gray-500">Thực hiện chuyển tiền liên ngân hàng</p>
+                                <span class="inline-block mt-1 text-xs font-bold text-[#c0262d]">+1 Lượt chơi</span>
+                            </div>
+                        </div>
+                        <button onclick="completeMission(this, 1)" class="bg-[#c0262d] hover:bg-[#8b1a1f] text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all">
+                            Làm nhiệm vụ
+                        </button>
+                    </div>
+
+                    <div class="mission-card group flex items-center justify-between p-5 rounded-2xl bg-gray-50 border-2 border-transparent">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition">
+                                🏦
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Mở Tiết kiệm trực tuyến</h4>
+                                <p class="text-sm text-gray-500">Gửi tiết kiệm từ 5.000.000đ trên app</p>
+                                <span class="inline-block mt-1 text-xs font-bold text-[#c0262d]">+5 Lượt chơi</span>
+                            </div>
+                        </div>
+                        <button onclick="completeMission(this, 5)" class="bg-[#c0262d] hover:bg-[#8b1a1f] text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all">
+                            Làm nhiệm vụ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer của Card -->
+                <div class="mt-10 p-6 bg-yellow-50 rounded-2xl border border-yellow-200">
+                    <h5 class="font-bold text-yellow-800 mb-2">Thể lệ chương trình:</h5>
+                    <ul class="text-sm text-yellow-700 space-y-1 opacity-80">
+                        <li>• Mỗi khách hàng nhận tối đa 20 lượt lắc/ngày.</li>
+                        <li>• Quà tặng tiền mặt sẽ được cộng trực tiếp vào tài khoản thanh toán.</li>
+                        <li>• Voucher có giá trị sử dụng đến hết 28/02/2025.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Thông báo -->
+    <div id="modal" class="fixed inset-0 bg-black/60 z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-8 text-center animate__animated animate__zoomIn">
+            <div id="modal-icon" class="text-6xl mb-4">✅</div>
+            <h3 id="modal-title" class="text-2xl font-bold mb-2">Thành công!</h3>
+            <p id="modal-msg" class="text-gray-600 mb-6">Bạn vừa nhận được 1 lượt chơi mới.</p>
+            <button onclick="closeModal()" class="w-full bg-[#c0262d] text-white font-bold py-3 rounded-xl shadow-lg">Xác nhận</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 text-center text-gray-500 text-sm">
+        <p>© 2025 Ngân hàng Nông nghiệp và Phát triển Nông thôn Việt Nam (Agribank)</p>
+        <p class="mt-2">Sản phẩm demo dành cho chiến dịch Marketing Tết</p>
+    </footer>
+
+    <script>
+        // Quản lý trạng thái lượt chơi
+        let turns = 5;
+        const turnDisplay = document.getElementById('turn-count');
+
+        // Tạo hiệu ứng hoa mai bay
+        function createPetals() {
+            const petalCount = 15;
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.width = Math.random() * 10 + 5 + 'px';
+                petal.style.height = petal.style.width;
+                petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(petal);
+            }
+        }
+
+        // Xử lý làm nhiệm vụ
+        function completeMission(btn, points) {
+            // Hiệu ứng loading giả lập
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = "Đang xử lý...";
+            btn.style.opacity = "0.6";
+
+            setTimeout(() => {
+                turns += points;
+                turnDisplay.innerText = turns;
+                
+                // Hiển thị modal
+                showModal("Chúc mừng!", `Bạn đã hoàn thành nhiệm vụ và nhận được ${points} lượt lắc lộc!`, "🎁");
+
+                // Cập nhật trạng thái nút
+                btn.innerText = "Đã nhận";
+                btn.className = "bg-gray-300 text-gray-600 px-6 py-2 rounded-full font-bold cursor-not-allowed";
+                
+                // Hiệu ứng pháo hoa nhỏ tại chỗ
+                createExplosion(btn);
+            }, 1200);
+        }
+
+        function createExplosion(el) {
+            const rect = el.getBoundingClientRect();
+            for (let i = 0; i < 10; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'firework bg-yellow-500';
+                dot.style.left = (rect.left + rect.width / 2) + 'px';
+                dot.style.top = (rect.top + rect.height / 2) + 'px';
+                document.body.appendChild(dot);
+
+                const angle = Math.random() * Math.PI * 2;
+                const dist = Math.random() * 50 + 20;
+                
+                dot.animate([
+                    { transform: 'translate(0, 0)', opacity: 1 },
+                    { transform: `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px)`, opacity: 0 }
+                ], {
+                    duration: 600,
+                    easing: 'ease-out'
+                }).onfinish = () => dot.remove();
+            }
+        }
+
+        function startGame() {
+            if (turns > 0) {
+                showModal("Đang vào game...", "Hệ thống đang chuyển hướng bạn tới giao diện lắc quà Tết!", "🎮");
+            } else {
+                showModal("Hết lượt rồi!", "Hãy thực hiện thêm nhiệm vụ bên dưới để lấy lượt nhé.", "😅");
+            }
+        }
+
+        function showModal(title, msg, icon) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-msg').innerText = msg;
+            document.getElementById('modal-icon').innerText = icon;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        // Đếm ngược giả lập
+        function startTimer() {
+            let time = 51725; // giây
+            setInterval(() => {
+                time--;
+                const h = Math.floor(time / 3600);
+                const m = Math.floor((time % 3600) / 60);
+                const s = time % 60;
+                document.getElementById('timer').innerText = 
+                    `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            }, 1000);
+        }
+
+        window.onload = () => {
+            createPetals();
+            startTimer();
+        };
+    </script>
+</body>
+</html>
